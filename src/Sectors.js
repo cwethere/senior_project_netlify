@@ -19,7 +19,7 @@ function Sectors() {
         console.log(event.target.value);
         setYear(event.target.value);
 
-        Axios.get(`http://localhost:3001/api/getRaces/${event.target.value}`).then((response) => {
+        Axios.get(`https://senior-project.herokuapp.com/api/getRaces/${event.target.value}`).then((response) => {
             console.log(response.data);
 
             setRaceList(response.data);
@@ -32,7 +32,7 @@ function Sectors() {
         console.log(event.target.value);
         setRace(event.target.value);
 
-        Axios.get(`http://localhost:3001/api/getDrivers/${event.target.value}`).then((response) => {
+        Axios.get(`https://senior-project.herokuapp.com/api/getDrivers/${event.target.value}`).then((response) => {
             console.log(response.data);
 
             setDriverList(response.data);
@@ -44,7 +44,7 @@ function Sectors() {
         console.log(event.target.value);
         setDriver(event.target.value);
 
-        Axios.get(`http://localhost:3001/api/getLaps/${race}/${event.target.value}`).then((response) => {
+        Axios.get(`https://senior-project.herokuapp.com/api/getLaps/${race}/${event.target.value}`).then((response) => {
             console.log(response.data);
 
             setLapList(response.data);
@@ -58,7 +58,7 @@ function Sectors() {
     }
 
     const generateTable = (event) => {
-        Axios.get(`http://localhost:3001/api/generateTable/${race}/${driver}/${lap}`).then((response) => {
+        Axios.get(`https://senior-project.herokuapp.com/api/generateTable/${race}/${driver}/${lap}`).then((response) => {
             console.log(response.data);
 
             setTableInfo(response.data);

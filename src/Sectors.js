@@ -58,7 +58,7 @@ function Sectors() {
     }
 
     const generateTable = (event) => {
-        Axios.get(`https://senior-project.herokuapp.com/getMysqlStatus`).then((response) => {
+        Axios.get(`https://senior-project.herokuapp.com/api/generateTable/${race}/${driver}/${lap}`).then((response) => {
             console.log(response.data);
 
             // setTableInfo(response.data);

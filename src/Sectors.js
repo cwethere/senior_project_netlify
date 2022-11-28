@@ -2,6 +2,7 @@ import './App.css';
 import Axios from 'axios';
 import { useState } from "react";
 import React from "react";
+import generateTable from "./GenerateTable";
 
 function Sectors() {
 
@@ -12,6 +13,8 @@ function Sectors() {
     const [driver, setDriver] = useState();
     const [lapList, setLapList] = useState([]);
     const [tableInfo, setTableInfo] = useState([]);
+    const [timeInfo, setTimeInfo] = useState([]);
+    const [speedInfo, setSpeedInfo] = useState([]);
     const [lap,setLap] = useState();
 
 
@@ -63,7 +66,19 @@ function Sectors() {
 
             setTableInfo(response.data);
             console.log(tableInfo);
-    });
+    });  
+        Axios.get(`https://senior-project.herokuapp.com/api/generateTimeData/${race}/${driver}/${lap}`).then((response) => {
+            console.log(response.data);
+
+            setTimeInfo(response.data);
+            console.log(timeInfo);
+    });  
+        Axios.get(`https://senior-project.herokuapp.com/api/generateSpeedData/${race}/${driver}/${lap}`).then((response) => {
+            console.log(response.data);
+
+            setSpeedInfo(response.data);
+            console.log(speedInfo);
+    });  
     
 }
 
@@ -104,6 +119,7 @@ function Sectors() {
             <button onClick={generateTable}>Click</button>
             
         <br/>
+    <div id="results">
     <table className="genTable">
         <tbody>
             <tr>
@@ -136,6 +152,7 @@ function Sectors() {
         </tbody>
     </table>
     </div>
+</div>
 
     );
 }

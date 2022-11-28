@@ -61,8 +61,8 @@ function Sectors() {
         Axios.get(`https://senior-project.herokuapp.com/api/generateTable/${race}/${driver}/${lap}`).then((response) => {
             console.log(response.data);
 
-            // setTableInfo(response.data);
-            // console.log(tableInfo);
+            setTableInfo(response.data);
+            console.log(tableInfo);
     });
     
 }

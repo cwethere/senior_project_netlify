@@ -2,7 +2,8 @@ import './App.css';
 import Axios from 'axios';
 import { useState } from "react";
 import React from "react";
-import generateTable from "./GenerateTable";
+import ReactDOM from "react-dom";
+import GenerateTableSectors from "./GenerateTableSectors";
 
 function Sectors() {
 
@@ -16,6 +17,7 @@ function Sectors() {
     const [timeInfo, setTimeInfo] = useState([]);
     const [speedInfo, setSpeedInfo] = useState([]);
     const [lap,setLap] = useState();
+    const [generate,setGenerate] = useState(false);
 
 
     const getRaces = (event) => {
@@ -61,6 +63,7 @@ function Sectors() {
     }
 
     const generateTable = (event) => {
+    if (race != "" && driver !="" && lap !="") {
         Axios.get(`https://senior-project.herokuapp.com/api/generateTable/${race}/${driver}/${lap}`).then((response) => {
             console.log(response.data);
 
@@ -78,12 +81,18 @@ function Sectors() {
 
             setSpeedInfo(response.data);
             console.log(speedInfo);
-    });  
-    
+    });
+    setGenerate(false);
 }
+}  
+
+    const generateGraph = () => {
+        setGenerate(true);
+    }
 
     return(
-    <div>
+    <div className='body'>
+        <div className='Generation'>
             <select className="season" id="seasonSectors" defaultValue={""} onChange={getRaces}>
                 <option value="" hidden></option>
                 <option value="2022">2022</option>
@@ -116,41 +125,50 @@ function Sectors() {
                 })
             }        
             </select>
-            <button onClick={generateTable}>Click</button>
-            
+            <br/>
+            <br/>
+            <button onClick={generateTable}>Generate Data</button>
+        <br/>
+        </div>
         <br/>
     <div id="results">
-    <table className="genTable">
-        <tbody>
-            <tr>
-                <th>Section</th>
-            {tableInfo.map((val,index) => {
-                return(
-                    <th>{val.StintID}</th>
-                )
-            })
-            }
-            </tr>
-            <tr>
-                <th>Time</th>
-            {tableInfo.map((val,index) => {
-                return(
-                    <td>{val.STime}</td>
-                )
+        <div id="table">
+        <table className="genTable">
+            <tbody>
+                <tr>
+                    <th>Section</th>
+                {tableInfo.map((val,index) => {
+                    return(
+                        <th>{val.StintID}</th>
+                    )
                 })
-            }
-            </tr>
-            <tr>
-                <th>Speed</th>
-            {tableInfo.map((val,index) => {
-                return(
-                    <td>{val.SSpeed}</td>
-                )
-                })
-            }
-            </tr>
-        </tbody>
-    </table>
+                }
+                </tr>
+                <tr>
+                    <th>Time (s)</th>
+                {tableInfo.map((val,index) => {
+                    return(
+                        <td>{val.STime}</td>
+                    )
+                    })
+                }
+                </tr>
+                <tr>
+                    <th>Speed (MPH)</th>
+                {tableInfo.map((val,index) => {
+                    return(
+                        <td>{val.SSpeed}</td>
+                    )
+                    })
+                }
+                </tr>
+            </tbody>
+        </table>
+    <br/>
+    <button onClick={generateGraph}>Generate Graph</button> 
+        {generate && <GenerateTableSectors dataPoints={timeInfo}/>}
+        {generate && <GenerateTableSectors dataPoints={speedInfo}/>}
+        </div>
     </div>
 </div>
 

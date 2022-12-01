@@ -1,3 +1,7 @@
+html {
+  background-color: #f0f0f0;
+}
+
 .App {
   text-align: center;
 }
@@ -14,14 +18,14 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #f0f0f0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #f0f0f0;
 }
 
 .App-link {
@@ -39,10 +43,150 @@
 
 
 
+.header {
+  background:#0075C9;
+  padding-top: .45em;
+  padding-bottom:.45em;
+  padding-left:1em;
+  padding-right:1em;
+}
+
+.Generation {
+  background-color: #0075C9;
+  border-radius: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 50%;
+  text-align: center;
+  
+}
+
+.Generation select {
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 30px;
+  width: 300px;
+  font-size: 15pt;
+}
+
+.Generation button {
+  display:block;
+  margin: auto;
+  height: 30px;
+  width: 200px;
+  font-size: 16pt;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.optionList .option {
+  text-align: center;
+  text-decoration: none;
+  color:white;
+  font-size: 20pt;
+  padding-top: .15em;
+  padding-left: .15em;
+  padding-left: .5em;
+  padding-right: .5em;
+  border-radius: 5px;
+  background-color: #0095ff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.optionList .optionItem {
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  float: right;
+  list-style: none;
+  align-items: right;
+  font-size: 20pt;
+  margin-left: 20px;
+  padding-top: .15em;
+  padding-left: .15em;
+  padding-left: .5em;
+  padding-right: .5em;
+  border-radius: 5px;
+  color:white;
+  background-color: #0095ff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.body {
+  padding:16px 32px 32px 16px;
+  background-color: #f0f0f0;
+}
+
+#results {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  width: 80%;
+  background-color: #0075C9;
+  overflow: auto;
+  border-radius: 15px;
+}
+
+#results #table {
+  display:scroll;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  background-color: #ffffff;
+  overflow: auto;
+}
+
+#results table {
+  display: table;
+  margin: auto;
+  width: 80%;
+}
+
+#results button {
+  display:block;
+  margin: auto;
+  height: 50px;
+  width: 200px;
+  font-size: 16pt;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
 .genTable {
   border: 2px solid;
 }
 
 table, tr, th {
   border: 1px solid;
+}
+
+#results .Graph {
+  display:block;
+  margin: auto;
+  width: 2100px;
+}
+
+.grid line {
+  stroke: black;
+  opacity: 1;
+}
+
+.genTable {
+  font-size: 16pt;
+}
+
+.InfoBody {
+  background-color: #0075C9;
+  padding: 20px;
+}
+
+.InfoBox {
+  color:black;
+  background-color: white;
 }

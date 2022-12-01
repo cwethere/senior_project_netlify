@@ -8,9 +8,8 @@ function Nav() {
                 <div className="optionList">
                     <ul>
                         <Link to="/" className="option">Home</Link>
-                        <Link to="/standings" className="option"><li>Standings</li></Link>
-                        <Link to="/lapchart" className="option"><li>Lap Chart</li></Link>
-                        <Link to="/sectors" className="option"><li>Sectors</li></Link>
+                        <Link to="/lapchart" className="optionItem"><li>Lap Chart</li></Link>
+                        <Link to="/sectors" className="optionItem"><li>Sectors</li></Link>
                     </ul>
                 </div>
             </div>
